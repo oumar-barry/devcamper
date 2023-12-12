@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const colors = require('colors')
 const connectDB = require('./config/database')
 const cookieParser = require('cookie-parser')
+const { errorHandler } = require('./middleware/error')
 const app = express()
 dotenv.config({path: './config/config.env'})
 
@@ -12,7 +13,7 @@ app.use(cookieParser())
 
 //biding routes
 app.use('/api/auth',require('./routes/authRoute'))
-
+app.use(errorHandler)
 
 connectDB()
 const PORT = process.env.PORT || 5000
