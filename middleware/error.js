@@ -1,5 +1,4 @@
 const ErrorResponse = require("../utils/ErrorResponse")
-
 exports.errorHandler = (err, req, res, next) => {
     let error = {...err}
     let message = null 
