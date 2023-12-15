@@ -1,6 +1,7 @@
 
 const connectDB = require('./config/database')
 const Bootcamp = require('./models/BootcampModel')
+const User = require('./models/UserModel')
 const fs = require('fs')
 require('colors')
 const bootcamps = JSON.parse(fs.readFileSync(`./_data/bootcamps.json`, 'utf-8'))
@@ -19,6 +20,7 @@ const importData = async () => {
 const deleteData = async () => {
     try {
         await Bootcamp.deleteMany()
+        //await User.deleteMany()
         console.log(`Data deleted successfully`.cyan.bold)
         process.exit()
     } catch (err) {
